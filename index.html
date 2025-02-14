@@ -1,0 +1,461 @@
+.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complexe LeSims - All in One Restaurant and Entertainment">
+    <title>Complexe LeSims - All in One</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/mobile menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/script.js" defer></script>
+    <script src="js/menu.js" defer></script>
+    <script src="js/mobile menu.js"></script>
+    <script src="js/translation.js"></script>
+</head>
+<body>
+<!-- Fixed Navigation Bar -->
+<nav class="navbar">
+    <div class="container">
+        <!-- Brand/Logo Section -->
+        <div class="nav-brand">
+            <img src="images/logo.jpg" alt="Complexe LeSims Logo" class="nav-logo">
+            <a href="#hero" class="logo">
+                <span class="logo-main">Complexe LeSims</span>
+                <span class="logo-subtitle">All-in-One</span>
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+            <span class="hamburger-icon"></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="nav-links">
+            <!-- Mobile Header (Only visible in mobile menu) -->
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">
+                    <img src="images/logo.jpg" alt="Complexe LeSims Logo">
+                    <div class="mobile-menu-brand">
+                        <span class="mobile-brand-main">Complexe LeSims</span>
+                        <span class="mobile-brand-sub">All-in-One</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Items -->
+            <li><a href="#about" data-i18n="nav.about">About Us</a></li>
+            <li><a href="#menu" data-i18n="nav.menu">Our Menu</a></li>
+            <li><a href="#games" data-i18n="nav.games">Our Games</a></li>
+            <li><a href="#disco" data-i18n="nav.disco">Disco Music</a></li>
+            <li><a href="#reservation" data-i18n="nav.reservation">Reservations</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
+
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="fr" aria-label="Switch to French">FR</button>
+                <button class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
+            </div>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay">
+            <h1 data-i18n="hero.welcome">Welcome to Complexe LeSims</h1>
+            <p data-i18n="hero.subtitle">Where exquisite flavors meet fine dining.</p>
+            <a href="#reservation" class="btn-primary" data-i18n="hero.cta">Make a Reservation</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 data-i18n="about.title">About Us</h2>
+            <p data-i18n="about.content">At Complexe LeSims, we redefine dining and entertainment. From gourmet meals, shawarma, and pizza to creamy ice creams and refreshing natural fruit juice cocktails, our menu is crafted to delight every palate.
+                Beyond dining, we offer a vibrant bar, lively disco music, and a dedicated games and leisure zone for unforgettable experiences. Whether you’re here to relax, celebrate, or indulge, Complexe LeSims is your ultimate destination for exceptional cuisine and entertainment in Yaoundé.</p>
+                <a href="#" class="btn-learn-more" data-i18n="about.More">Learn More</a>
+        </div>
+    </section>
+
+<!-- Menu Section -->
+<section id="menu" class="section menu">
+    <div class="menu-bg"></div>
+    <div class="container">
+        <h2 data-i18n="menu.title">Our Menu</h2>
+
+ <!-- Menu Introduction -->
+ <div class="menu-intro">
+    <h3 class="menu-intro-title" data-i18n="menu.intro.title">Culinary Excellence at Complexe LeSims</h3>
+    <div class="menu-intro-content">
+        <p data-i18n="menu.intro.content">Discover our exquisite selection of dishes, carefully crafted to delight your senses:</p>
+    </div>
+</div>
+
+<!-- Menu Categories Navigation -->
+<nav class="menu-nav" aria-label="Menu Categories">
+    <button class="menu-btn active" data-category="all" data-i18n="menu.all" aria-pressed="true">All</button>
+    <a href="pages/pizza.html" class="menu-btn" data-category="pizza" data-i18n="menu.pizza" style="text-decoration: none;">Pizzas</a>
+    <a href="pages/chicken.html" class="menu-btn" data-category="chicken" data-i18n="menu.chicken" style="text-decoration: none;">Chicken</a>
+    <a href="pages/porc.html" class="menu-btn" data-category="porc" data-i18n="menu.porc" style="text-decoration: none;">Porc</a>
+    <a href="pages/icecream.html" class="menu-btn" data-category="icecream" data-i18n="menu.icecream" style="text-decoration: none;">Ice Cream</a>
+    <a href="pages/fish.html" class="menu-btn" data-category="fish" data-i18n="menu.fish" style="text-decoration: none;">Fish</a>
+    <a href="pages/shawarma.html" class="menu-btn" data-category="shawarma" data-i18n="menu.shawarma" style="text-decoration: none;">Shawarma</a>
+    <a href="pages/drinks.html" class="menu-btn" data-category="drinks" data-i18n="menu.drinks" style="text-decoration: none;">Drinks</a>
+    <a href="pages/packages.html" class="menu-btn" data-category="packages" data-i18n="menu.packages" style="text-decoration: none;">Packages</a>
+</nav>
+
+<!-- Category Previews -->
+<div class="category-previews">
+    <div id="pizza" class="category-item" data-category="pizza">
+        <a href="pages/pizza.html">
+            <img src="images/pizza-category.jpg" alt="Our Pizzas">
+            <div class="category-overlay">
+                <h3 data-i18n="menu.category.pizza.title">Our Pizzas</h3>
+                <p data-i18n="menu.category.pizza.desc">Hand-tossed and stone-baked to perfection</p>
+            </div>
+        </a>
+    </div>
+
+    <div id="chicken" class="category-item" data-category="chicken">
+        <a href="pages/chicken.html">
+            <img src="images/chicken-category.jpg" alt="Chicken Dishes">
+            <div class="category-overlay">
+                <h3 data-i18n="menu.category.chicken.title">Chicken Dishes</h3>
+                <p data-i18n="menu.category.chicken.desc">Succulent and perfectly seasoned</p>
+            </div>
+        </a>
+    </div>
+
+    <div id="porc" class="category-item" data-category="porc">
+        <a href="pages/porc.html">
+            <img src="images/porc-category.jpg" alt="Porc Specialties">
+            <div class="category-overlay">
+                <h3 data-i18n="menu.category.porc.title">Porc Specialties</h3>
+                <p data-i18n="menu.category.porc.desc">Premium cuts and expert preparation</p>
+            </div>
+        </a>
+    </div>
+
+    <div id="fish" class="category-item" data-category="fish">
+        <a href="pages/fish.html">
+            <img src="images/fish-category.jpg" alt="Fresh Fish">
+            <div class="category-overlay">
+                <h3 data-i18n="menu.category.fish.title">Fresh Fish</h3>
+                <p data-i18n="menu.category.fish.desc">Daily catch with Mediterranean flair</p>
+            </div>
+        </a>
+    </div>
+
+    <div id="shawarma" class="category-item" data-category="shawarma">
+        <a href="pages/shawarma.html">
+            <img src="images/shawarma-category.jpg" alt="Shawarma">
+            <div class="category-overlay">
+                <h3 data-i18n="menu.category.shawarma.title">Shawarma</h3>
+                <p data-i18n="menu.category.shawarma.desc">Authentic Middle Eastern flavors</p>
+            </div>
+        </a>
+    </div>
+
+    <div id="icecream" class="category-item" data-category="icecream">
+        <a href="pages/icecream.html">
+            <img src="images/icecream-category.jpg" alt="Ice Cream">
+            <div class="category-overlay">
+                <h3 data-i18n="menu.category.icecream.title">Ice Cream</h3>
+                <p data-i18n="menu.category.icecream.desc">Homemade gourmet selections</p>
+            </div>
+        </a>
+    </div>
+
+    <div id="drinks" class="category-item" data-category="drinks">
+        <a href="pages/drinks.html">
+            <img src="images/drinks-category.jpg" alt="Drinks">
+            <div class="category-overlay">
+                <h3 data-i18n="menu.category.drinks.title">Drinks</h3>
+                <p data-i18n="menu.category.drinks.desc">From cocktails to fresh juices</p>
+            </div>
+        </a>
+    </div>
+
+    <div id="packages" class="category-item" data-category="packages">
+        <a href="pages/packages.html">
+            <img src="images/packages-category.jpg" alt="Special Packages">
+            <div class="category-overlay">
+                <h3 data-i18n="menu.category.packages.title">Special Packages</h3>
+                <p data-i18n="menu.category.packages.desc">Perfect for any celebration</p>
+            </div>
+        </a>
+    </div>
+</div>
+</section>
+
+<!-- Games Section -->
+<section id="games" class="section games">
+    <div class="container">
+        <h2 data-i18n="games.title">Our Games</h2>
+        <p data-i18n="games.content">Discover the world of original Sims games where creativity meets virtual life simulation.</p>
+        <div class="games-grid">
+            <div class="game-item">
+                <img src="images/billard.jpg" alt="Billard Table" data-i18n-alt="games.billard.alt">
+                <h3 data-i18n="games.billard.title">Billard</h3>
+            </div>
+            
+            <div class="game-item">
+                <img src="images/checkers.jpg" alt="Checkers Game" data-i18n-alt="games.checkers.alt">
+                <h3 data-i18n="games.checkers.title">Checkers</h3>
+            </div>
+            
+            <div class="game-item">
+                <img src="images/draft.jpg" alt="Draft Game" data-i18n-alt="games.draft.alt">
+                <h3 data-i18n="games.draft.title">Draft</h3>
+            </div>
+            
+            <div class="game-item">
+                <img src="images/ludo.jpg" alt="Ludo Game" data-i18n-alt="games.ludo.alt">
+                <h3 data-i18n="games.ludo.title">Ludo</h3>
+            </div>
+            
+            <div class="game-item">
+                <img src="images/playstation.jpg" alt="PlayStation Gaming" data-i18n-alt="games.playstation.alt">
+                <h3 data-i18n="games.playstation.title">PlayStation</h3>
+            </div>
+            
+            <div class="game-item">
+                <img src="images/cards.jpg" alt="Card Games" data-i18n-alt="games.cards.alt">
+                <h3 data-i18n="games.cards.title">Cards</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Disco Music Section -->
+<section id="disco" class="section disco">
+    <div class="container">
+        <h2 data-i18n="disco.title">Disco Music</h2>
+        <div class="disco-content">
+            <img src="images/disco.jpg" alt="Disco Night">
+            <div class="disco-text">
+                <p data-i18n="disco.description">Join us every weekend for the most exciting disco nights in town!</p>
+                <p data-i18n="disco.features">Live DJ • Dance Floor • Special Events</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Reservation Section -->
+<section id="reservation" class="section reservation">
+    <div class="container">
+        <h2 data-i18n="reservation.title">Make a Reservation</h2>
+        <form id="reservationForm" class="reservation-form">
+            <div class="form-group">
+                <input type="text" id="name" name="name" placeholder=" " required>
+                <label for="name" data-i18n="reservation.name">Your Name</label>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <label for="email" data-i18n="reservation.email">Email Address</label>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" name="phone" placeholder=" " required>
+                <label for="phone" data-i18n="reservation.phone">Phone Number</label>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="date" id="date" name="date" placeholder=" " required>
+                    <label for="date" data-i18n="reservation.date">Date</label>
+                </div>
+                <div class="form-group">
+                    <input type="time" id="time" name="time" placeholder=" " required>
+                    <label for="time" data-i18n="reservation.time">Time</label>
+                </div>
+                </div>
+                <!-- Number of Guests Field -->
+<!-- Number of Guests Field -->
+<div class="form-group guests-group">
+    <label for="guests-number" data-i18n="reservation.guests">Number of Guests</label>
+    <div class="guests-input-container">
+        <input type="number" 
+               id="guests-number" 
+               name="guests-number" 
+               min="1" 
+               max="50" 
+               placeholder=" "
+               required>
+        <select id="guests" 
+                name="guests" 
+                required 
+                onchange="document.getElementById('guests-number').value = this.value">
+            <option value="" disabled selected></option>
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5">5 People</option>
+            <option value="6">6 People</option>
+            <option value="7">7 People</option>
+            <option value="8">8 People</option>
+            <option value="9">9 People</option>
+            <option value="10">10 People</option>
+            <option value="15">15 People</option>
+            <option value="20">20 People</option>
+            <option value="25">25 People</option>
+            <option value="30">30+ People</option>
+        </select>
+    </div>
+</div>
+                <div class="form-group">
+                    <textarea id="special-requests" name="requests" rows="3" placeholder=" "></textarea>
+                    <label for="special-requests" data-i18n="reservation.guests">Special Requests</label>
+                </div>
+                <div id="formMessage"></div>
+                <button type="submit" class="btn-submit" id="submitButton" data-i18n="reservation.submit">Reserve Table</button>
+            </form>
+        </div>
+    </section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <h2 data-i18n="contact.title">Contact Us</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p data-i18n="contact.address">Yaounde, Cameroon-soa</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><span data-i18n="contact.email">Email:</span> <a href="mailto:contact@Simondomfabrice.com">contact@Simondomfabrice.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p><span data-i18n="contact.phone">Phone:</span> <a href="tel:+237694579268">+237 694579268</a></p>
+                </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="social-media">
+                <h3 data-i18n="contact.follow">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/154ou3hT74/?mibextid=wwXIfr" class="social-icon" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/complexe_lesims/profilecard/?igsh=dTY2NjJ1MG41enRh" class="social-icon" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@complexe.lesims.s?_t=ZM-8tmO72gKnCB&_r=1 " class="social-icon" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/237694579268" class="social-icon" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:contact@Simondomfabrice.com" class="social-icon" title="Gmail">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-content">
+        <!-- Company Info -->
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="images/logo.jpg" alt="Complexe LeSims Logo" class="footer-logo-img">
+                <div class="footer-brand">
+                    <span class="footer-brand-main">Complexe LeSims</span>
+                    <span class="footer-brand-sub">All-in-One</span>
+                </div>
+            </div>
+            <p class="footer-desc" data-i18n="footer.description">Experience the perfect blend of dining and entertainment in Yaoundé. From gourmet meals to games and music, we create unforgettable moments.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+            <h3 data-i18n="footer.quickLinks">Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#about" data-i18n="nav.about">About Us</a></li>
+                <li><a href="#menu" data-i18n="nav.menu">Our Menu</a></li>
+                <li><a href="#games" data-i18n="nav.games">Games</a></li>
+                <li><a href="#disco" data-i18n="nav.disco">Disco</a></li>
+                <li><a href="#reservation" data-i18n="nav.reservation">Reservations</a></li>
+            </ul>
+        </div>
+
+        <!-- Opening Hours -->
+        <div class="footer-column">
+            <h3 data-i18n="footer.hours.title">Opening Hours</h3>
+            <ul class="footer-hours">
+                <li>
+                    <span class="day" data-i18n="footer.hours.monThurs">Monday - Thursday</span>
+                    <span class="hours">12:00 AM - 6:00 PM</span>
+                </li>
+                <li>
+                    <span class="day" data-i18n="footer.hours.friSat">Friday - Saturday</span>
+                    <span class="hours">11:00 AM - 8:00 AM</span>
+                </li>
+                <li>
+                    <span class="day" data-i18n="footer.hours.sunday">Sunday</span>
+                    <span class="hours">10:00 AM - 6:00 PM</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-column">
+            <h3 data-i18n="footer.newsletter.title">Newsletter</h3>
+            <p class="newsletter-desc" data-i18n="footer.newsletter.desc">Subscribe to receive updates about special events and exclusive offers.</p>
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <input type="email" data-i18n="footer.newsletter.placeholder" placeholder="Your email address" required>
+                    <button type="submit" class="btn-subscribe" data-i18n="footer.newsletter.button">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="footer-social">
+            <a href="https://www.facebook.com/share/154ou3hT74/?mibextid=wwXIfr" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/complexe_lesims/" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@complexe.lesims" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://wa.me/237694579268" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <div class="footer-info">
+            <p data-i18n="footer.copyright">&copy; 2024 Complexe LeSims. All Rights Reserved.</p>
+            <div class="footer-legal">
+                <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+                <a href="#" data-i18n="footer.terms">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,284 @@
+.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complexe LeSims - All in One Restaurant and Entertainment">
+    <title>Complexe LeSims - All in One</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/script.js" defer></script>
+    <script src="js/menu.js" defer></script>
+</head>
+<body>
+    <!-- Fixed Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/logo.jpg" alt="Complexe LeSims Logo" class="nav-logo">
+                <a href="#hero" class="logo">
+                    <span class="logo-main">Complexe LeSims</span>
+                    <span class="logo-subtitle">All-in-One</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#menu">Our Menu</a></li>
+                <li><a href="#games">Our Games</a></li>
+                <li><a href="#disco">Disco Music</a></li>
+                <li><a href="#reservation">Reservations</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay">
+            <h1>Welcome to Complexe LeSims</h1>
+            <p>Where exquisite flavors meet fine dining.</p>
+            <a href="#reservation" class="btn-primary">Make a Reservation</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At Complexe LeSims, we redefine dining and entertainment. From gourmet meals, shawarma, and pizza to creamy ice creams and refreshing natural fruit juice cocktails, our menu is crafted to delight every palate.
+                Beyond dining, we offer a vibrant bar, lively disco music, and a dedicated games and leisure zone for unforgettable experiences. Whether you’re here to relax, celebrate, or indulge, Complexe LeSims is your ultimate destination for exceptional cuisine and entertainment in Yaoundé.</p>
+                <a href="#" class="btn-learn-more">Learn More</a>
+        </div>
+    </section>
+
+<!-- Menu Section -->
+<section id="menu" class="section menu">
+    <div class="menu-bg"></div>
+    <div class="container">
+        <h2>Our Menu</h2>
+
+       <!-- Menu Introduction -->
+       <div class="menu-intro">
+        <h3 class="menu-intro-title">Culinary Excellence at Complexe LeSims</h3>
+        <div class="menu-intro-content">
+            <p>Discover our exquisite selection of dishes, carefully crafted to delight your senses:</p>
+            <ul class="menu-features">
+                <li><span class="highlight">Artisanal Pizzas</span> - Hand-tossed and stone-baked to perfection</li>
+                <li><span class="highlight">Succulent Chicken</span> - Grilled, roasted, or fried to your preference</li>
+                <li><span class="highlight">Premium Porc</span> - Tender cuts prepared with expert seasoning</li>
+                <li><span class="highlight">Fresh Fish</span> - Daily catch prepared in Mediterranean style</li>
+                <li><span class="highlight">Authentic Shawarma</span> - Middle Eastern flavors with our special twist</li>
+                <li><span class="highlight">Gourmet Ice Cream</span> - Homemade with natural ingredients</li>
+                <li><span class="highlight">Extensive Drinks</span> - From craft cocktails to natural juices</li>
+                <li><span class="highlight">Special Packages</span> - Perfect for gatherings and celebrations</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Menu Categories Navigation -->
+    <nav class="menu-nav" aria-label="Menu Categories">
+        <button class="menu-btn active" data-category="all" aria-pressed="true">All</button>
+        <button class="menu-btn" data-category="pizza">Pizzas</button>
+        <button class="menu-btn" data-category="chicken">Chicken</button>
+        <button class="menu-btn" data-category="porc">Porc</button>
+        <button class="menu-btn" data-category="icecream">Ice Cream</button>
+        <button class="menu-btn" data-category="fish">Fish</button>
+        <button class="menu-btn" data-category="shawarma">Shawarma</button>
+        <button class="menu-btn" data-category="drinks">Drinks</button>
+        <button class="menu-btn" data-category="packages">Packages</button>
+    </nav>
+
+<!-- Category Previews -->
+<div class="category-item" data-category="pizza">
+    <a href="pages/pizza.html">
+        <img src="images/pizza-category.jpg" alt="Our Pizzas">
+        <div class="category-overlay">
+            <h3>Our Pizzas</h3>
+            <p>Hand-tossed and stone-baked to perfection</p>
+        </div>
+    </a>
+</div>
+    
+    <div class="category-item" data-category="chicken">
+        <img src="images/chicken-category.jpg" alt="Chicken Dishes">
+        <div class="category-overlay">
+            <h3>Chicken Dishes</h3>
+            <p>Succulent and perfectly seasoned</p>
+        </div>
+    </div>
+
+    <div class="category-item" data-category="porc">
+        <img src="images/porc-category.jpg" alt="Porc Specialties">
+        <div class="category-overlay">
+            <h3>Porc Specialties</h3>
+            <p>Premium cuts and expert preparation</p>
+        </div>
+    </div>
+
+    <div class="category-item" data-category="fish">
+        <img src="images/fish-category.jpg" alt="Fresh Fish">
+        <div class="category-overlay">
+            <h3>Fresh Fish</h3>
+            <p>Daily catch with Mediterranean flair</p>
+        </div>
+    </div>
+
+    <div class="category-item" data-category="shawarma">
+        <img src="images/shawarma-category.jpg" alt="Shawarma">
+        <div class="category-overlay">
+            <h3>Shawarma</h3>
+            <p>Authentic Middle Eastern flavors</p>
+        </div>
+    </div>
+
+    <div class="category-item" data-category="icecream">
+        <img src="images/icecream-category.jpg" alt="Ice Cream">
+        <div class="category-overlay">
+            <h3>Ice Cream</h3>
+            <p>Homemade gourmet selections</p>
+        </div>
+    </div>
+
+    <div class="category-item" data-category="drinks">
+        <img src="images/drinks-category.jpg" alt="Drinks">
+        <div class="category-overlay">
+            <h3>Drinks</h3>
+            <p>From cocktails to fresh juices</p>
+        </div>
+    </div>
+
+    <div class="category-item" data-category="packages">
+        <img src="images/packages-category.jpg" alt="Special Packages">
+        <div class="category-overlay">
+            <h3>Special Packages</h3>
+            <p>Perfect for any celebration</p>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+    <!-- Games Section -->
+<section id="games" class="section games">
+    <div class="container">
+        <h2>Our Games</h2>
+        <div class="games-grid">
+            <div class="game-item">
+                <img src="images/billard.jpg" alt="Billard Table">
+                <h3>Billard</h3>
+            </div>
+            <div class="game-item">
+                <img src="images/checkers.jpg" alt="Checkers Game">
+                <h3>Checkers</h3>
+            </div>
+            <div class="game-item">
+                <img src="images/draft.jpg" alt="Draft Game">
+                <h3>Draft</h3>
+            </div>
+            <div class="game-item">
+                <img src="images/ludo.jpg" alt="Ludo Game">
+                <h3>Ludo</h3>
+            </div>
+            <div class="game-item">
+                <img src="images/playstation.jpg" alt="PlayStation Gaming">
+                <h3>PlayStation</h3>
+            </div>
+            <div class="game-item">
+                <img src="images/cards.jpg" alt="Card Games">
+                <h3>Cards</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Disco Music Section -->
+<section id="disco" class="section disco">
+    <div class="container">
+        <h2>Disco Music</h2>
+        <div class="disco-content">
+            <img src="images/disco.jpg" alt="Disco Night">
+            <div class="disco-text">
+                <p>Join us every weekend for the most exciting disco nights in town!</p>
+                <p>Live DJ • Dance Floor • Special Events</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="section reservation">
+        <div class="container">
+            <h2>Make a Reservation</h2>
+            <form id="reservationForm" class="reservation-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Your Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email Address</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="phone">Phone Number</label>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="date" id="date" name="date" required>
+                        <label for="date">Date</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="time" id="time" name="time" required>
+                        <label for="time">Time</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select id="guests" name="guests" required>
+                        <option value="">Select Guests</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5+">5+ People</option>
+                    </select>
+                    <label for="guests">Number of Guests</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="special-requests" name="requests" rows="3"></textarea>
+                    <label for="special-requests">Special Requests</label>
+                </div>
+                <div id="formMessage"></div>
+                <button type="submit" class="btn-submit" id="submitButton">Reserve Table</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Address: Yaounde, Cameroon-soa</p>
+            <p>Email: <a href="mailto:contact@lesims.com">contact@Simondomfabrice.com</a></p>
+            <p>Phone: +237 694579268</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Complexe LeSims. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

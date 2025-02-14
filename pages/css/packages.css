@@ -1,0 +1,72 @@
+/* Packages-specific styling extending drinks.css */
+
+/* Adjust spacing for package items */
+.drinks-item {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Package item specific styling */
+.drinks-item.premium {
+    background: linear-gradient(45deg, #fff, #fdfaf6);
+    border-left: 4px solid #5d0527;
+}
+
+/* Style for package contents */
+.drinks-item .drink-name strong {
+    display: block;
+    color: #5d0527;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Bullet points styling */
+.drinks-item .drink-name br + span::before,
+.drink-name br + • {
+    content: '•';
+    color: #5d0527;
+    margin-right: 0.5rem;
+}
+
+/* Price styling for packages */
+.drinks-item.premium .drink-price {
+    font-size: 1.2rem;
+    background: #5d0527;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+/* Add icon for packages */
+.drinks-section:nth-of-type(2)::before {
+    content: '🎁';
+    position: absolute;
+    right: -20px;
+    top: 10px;
+    font-size: 8rem;
+    opacity: 0.03;
+    transform: rotate(15deg);
+}
+
+/* Enhanced hover effect for packages */
+.drinks-item.premium:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 15px rgba(93, 5, 39, 0.15);
+    border-left-color: #5d0527;
+}
+
+/* Mobile responsiveness adjustments */
+@media (max-width: 768px) {
+    .drinks-item {
+        padding: 1rem;
+    }
+    
+    .drinks-item .drink-name strong {
+        font-size: 1rem;
+    }
+    
+    .drinks-item.premium .drink-price {
+        font-size: 1.1rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

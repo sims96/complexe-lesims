@@ -1,0 +1,242 @@
+/* Drinks Menu Specific Styling */
+
+/* Section styling */
+.drinks-section {
+    margin-bottom: 4rem;
+    background: rgba(93, 5, 39, 0.02);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 15px rgba(93, 5, 39, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add decorative wine glass watermark to wine section */
+.drinks-section:nth-of-type(2)::before {
+    content: '🍷';
+    position: absolute;
+    right: -20px;
+    top: 10px;
+    font-size: 8rem;
+    opacity: 0.03;
+    transform: rotate(15deg);
+}
+
+/* Add decorative whiskey glass watermark to whiskey section */
+.drinks-section:nth-of-type(3)::before {
+    content: '🥃';
+    position: absolute;
+    right: -20px;
+    top: 10px;
+    font-size: 8rem;
+    opacity: 0.03;
+    transform: rotate(15deg);
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.category-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #5d0527;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Main heading style */
+.drinks-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #5d0527;
+    text-align: left;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgba(93, 5, 39, 0.1);
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+/* Add decorative element to headings */
+.drinks-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #5d0527;
+    transition: width 0.3s ease;
+}
+
+.drinks-heading:hover::after {
+    width: 100px;
+}
+
+/* Subheading style with enhanced visibility */
+.drinks-subheading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 2.5rem 0 1.5rem;
+    padding-left: 1rem;
+    border-left: 4px solid #5d0527;
+    color: #5d0527;
+    background: linear-gradient(90deg, rgba(93, 5, 39, 0.05), transparent);
+    padding: 0.5rem 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+/* List styling */
+.drinks-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* Individual drink item styling */
+.drinks-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(93, 5, 39, 0.05);
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+/* Hover effect on items */
+.drinks-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 8px rgba(93, 5, 39, 0.1);
+    border-left-color: #5d0527;
+}
+
+/* Drink name styling */
+.drink-name {
+    font-weight: 400;
+    color: #333;
+    max-width: 70%;
+    transition: color 0.3s ease;
+}
+
+.drinks-item:hover .drink-name {
+    color: #5d0527;
+}
+
+/* Price styling with enhanced visibility */
+.drink-price {
+    font-weight: 600;
+    color: #5d0527;
+    white-space: nowrap;
+    background: rgba(93, 5, 39, 0.05);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.drinks-item:hover .drink-price {
+    background: #5d0527;
+    color: white;
+}
+
+/* Premium item styling with enhanced design */
+.drinks-item.premium {
+    background: linear-gradient(45deg, #fdfaf6, #fff8e7);
+    border: 1px solid rgba(218, 165, 32, 0.2);
+    box-shadow: 0 4px 8px rgba(218, 165, 32, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add premium badge */
+.drinks-item.premium::before {
+    content: '★';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(218, 165, 32, 0.2);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Premium item hover effects */
+.drinks-item.premium:hover {
+    box-shadow: 0 6px 12px rgba(218, 165, 32, 0.2);
+    border-left-color: gold;
+}
+
+.drinks-item.premium:hover::before {
+    color: rgba(218, 165, 32, 0.4);
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Category separation styling */
+.drinks-section:not(:last-child) {
+    border-bottom: 1px solid rgba(93, 5, 39, 0.1);
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+    .drinks-section {
+        padding: 1.5rem;
+    }
+
+    .drinks-heading {
+        font-size: 1.8rem;
+    }
+
+    .drinks-subheading {
+        font-size: 1.3rem;
+    }
+
+    .drinks-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .drink-name {
+        max-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .drink-price {
+        align-self: flex-end;
+    }
+
+    /* Adjust watermark position for mobile */
+    .drinks-section::before {
+        font-size: 6rem;
+        right: -10px;
+        top: 5px;
+    }
+}
+
+/* Print styles for better readability when printed */
+@media print {
+    .drinks-section {
+        break-inside: avoid;
+        background: none;
+        box-shadow: none;
+    }
+
+    .drinks-item {
+        break-inside: avoid;
+        border: 1px solid #ddd;
+        box-shadow: none;
+    }
+
+    .drink-price {
+        background: none;
+    }
+}
