@@ -320,13 +320,6 @@ h1, h2 {
     padding: 2rem;
 }
 
-/* Hero section title styling:
-   - Sets font size
-   - Adds text shadow for better readability */
-.hero h1 {
-    font-size: 3rem;
-}
-
 /* Primary button styling in hero section:
    - Uses a dark pink background
    - Sets text color to white
@@ -362,7 +355,14 @@ h1, h2 {
    - Adds letter spacing and margin
    - Uses 'Playfair Display' font
    - Adds text shadow and animation */
-.hero h1 {
+/* Hero section title styling:
+   - Sets font size and weight
+   - Uses white color
+   - Adds letter spacing and margin
+   - Uses 'Playfair Display' font
+   - Adds text shadow and animation */
+   .hero h1 {
+    /* Existing styles - keep these as a base */
     font-size: 2rem;
     font-weight: 500;
     color: #ffffff;
@@ -370,26 +370,45 @@ h1, h2 {
     letter-spacing: 3px;
     margin-bottom: 1.5rem;
     font-family: 'Playfair Display', serif;
-    text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.3),
-        0 0 20px rgb(255, 217, 0);
     animation: titleFade 1s ease-in;
-    background: linear-gradient(45deg, #ffffff, #ffd700);
+
+    /* Futuristic Enhancements - Experiment with these! */
+    text-shadow:
+        0 0 5px #fff,         /* White glow */
+        0 0 10px #fff,
+        0 0 15px #ffd700,    /* Gold neon glow */
+        0 0 20px #ffd700,
+        0 0 25px #ffd700,
+        0 0 30px #ffd700;
+    background: linear-gradient(45deg, #ffd700, #ffffff); /* Gold to White Gradient */
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700; /* Make it bolder */
+    letter-spacing: 0.1em; /* Slightly wider letter spacing */
+    text-transform: uppercase; /* Optional: Uppercase for stronger impact */
+    animation: neonShine 2s infinite alternate, titleFade 1s ease-in; /* Add neon shine animation */
 }
 
-/* Animation for hero section title:
-   - Fades in and moves up */
-@keyframes titleFade {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
+/* Neon shine animation */
+@keyframes neonShine {
+    0%, 100% {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 15px #ffd700,
+            0 0 20px #ffd700,
+            0 0 25px #ffd700,
+            0 0 30px #ffd700;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    50% {
+        text-shadow:
+            0 0 3px #fff,
+            0 0 6px #fff,
+            0 0 8px #ffd700,
+            0 0 10px #ffd700,
+            0 0 12px #ffd700,
+            0 0 15px #ffd700;
     }
 }
 
@@ -2235,10 +2254,10 @@ h1, h2 {
 @media (max-width: 768px) {
     /* Navigation */
 
-    /* Hero Section */
+    /* Hero Section (Mobile Styles - Modifications are here) */
     .hero {
-        height: 60vh;
-        padding-top: 80px;
+        height: 100vh; /* <--- Set to 100vh for full screen on mobile */
+        padding-top: 0;  /* <--- Remove padding-top on mobile to allow full screen */
     }
 
     .hero h1 {
