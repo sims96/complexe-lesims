@@ -55,6 +55,15 @@ h1, h2 {
     text-align: center;
 }
 
+
+/* Section styling:
+   - Adds padding and centers text */
+   .section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+
 /* Hover effect for language buttons */
 .lang-btn:hover {
     background: rgba(255, 255, 255, 0.15);
@@ -104,7 +113,7 @@ h1, h2 {
     }
 
     .nav-links.mobile-active .language-switcher {
-        margin: 2rem 0;
+        margin: 1rem 0;
         padding: 0.5rem;
     }
 
@@ -140,7 +149,7 @@ h1, h2 {
     align-items: center;
     height: 60px;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 0rem;
     max-width: 1600px;
     margin: 0 auto;
 }
@@ -297,7 +306,7 @@ h1, h2 {
    - Adds a dark overlay on the background image
    - Centers content vertically and horizontally */
 .hero {
-    height: 80vh;
+    height: 88vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('../images/background.jpg') no-repeat center center;
     background-size: cover;
@@ -342,12 +351,6 @@ h1, h2 {
     background: #4e0320;
 }
 
-/* Section styling:
-   - Adds padding and centers text */
-.section {
-    padding: 4rem 0;
-    text-align: center;
-}
 
 /* Hero section title styling:
    - Sets font size and weight
@@ -355,14 +358,7 @@ h1, h2 {
    - Adds letter spacing and margin
    - Uses 'Playfair Display' font
    - Adds text shadow and animation */
-/* Hero section title styling:
-   - Sets font size and weight
-   - Uses white color
-   - Adds letter spacing and margin
-   - Uses 'Playfair Display' font
-   - Adds text shadow and animation */
    .hero h1 {
-    /* Existing styles - keep these as a base */
     font-size: 2rem;
     font-weight: 500;
     color: #ffffff;
@@ -444,7 +440,7 @@ h1, h2 {
 .section .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 0rem;
 }
 
 /* Section headings spacing:
@@ -2215,7 +2211,7 @@ h1, h2 {
    - Hides navigation links */
 @media (max-width: 768px) {
     .navbar .container {
-        padding: 0 1rem;
+        padding: 0 0rem;
     }
 
     .nav-links {
@@ -2234,10 +2230,6 @@ h1, h2 {
         font-size: 0.7rem;
     }
 
-    .hero h1 {
-        font-size: 2rem;
-    }
-
     .form-row {
         flex-direction: column;
         gap: 1rem;
@@ -2252,6 +2244,10 @@ h1, h2 {
 
 /* Responsive Design Updates */
 @media (max-width: 768px) {
+
+    .container {
+        padding: 0rem;
+    }
     /* Navigation */
 
     /* Hero Section (Mobile Styles - Modifications are here) */
@@ -2439,5 +2435,8 @@ h1, h2 {
         justify-content: center;
     }
 }
+
+
+
 
 
