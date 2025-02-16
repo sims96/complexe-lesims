@@ -1,0 +1,2442 @@
+/* Sets the default appearance for the entire website:
+   - Uses 'Roboto' as the main font
+   - Removes any extra spacing around the page
+   - Sets the main text color to a dark pink
+   - Makes the background a soft cream color */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    color: rgb(107, 5, 56);
+    background-color: #fdfaf6;
+}
+
+/* Makes main titles use an elegant font called 'Playfair Display' */
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Creates a centered container that holds content and prevents it from becoming too wide */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+/* Language switcher container styling */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 2rem;
+    padding: 0.25rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Language button base styling */
+.lang-btn {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 45px;
+    text-align: center;
+}
+
+
+/* Section styling:
+   - Adds padding and centers text */
+   .section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+
+/* Hover effect for language buttons */
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffd700;
+    color: #ffd700;
+    transform: translateY(-1px);
+}
+
+/* Active state for selected language */
+.lang-btn.active {
+    background: #ffd700;
+    color: #5d0527;
+    border-color: #ffd700;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Active button hover state */
+.lang-btn.active:hover {
+    background: #ffe44d;
+    transform: translateY(-1px);
+}
+
+/* Focus state for accessibility */
+.lang-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
+}
+
+/* Specific styles for category pages where background might be lighter */
+.category-page .language-switcher {
+    background: rgba(93, 5, 39, 0.9);
+    box-shadow: 0 2px 8px rgba(93, 5, 39, 0.2);
+}
+
+.category-page .lang-btn {
+    border-color: rgba(255, 255, 255, 0.9);
+    color: white;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .language-switcher {
+        margin: 1rem 0;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links.mobile-active .language-switcher {
+        margin: 1rem 0;
+        padding: 0.5rem;
+    }
+
+    .lang-btn {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+
+
+/* Navigation bar styling:
+   - Sticks to the top of the page as you scroll
+   - Has a deep burgundy background
+   - Creates a subtle shadow underneath */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #5d0527;
+    padding: 0.8rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+/* Organizes the navigation bar contents:
+   - Places items in a row
+   - Spaces items evenly
+   - Centers items vertically */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    padding: 0 0rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Logo section styling:
+   - Groups the logo image and text together
+   - Adds a small gap between elements */
+
+
+.nav-logo {
+    height: 45px;
+    width: auto;
+    margin: 0;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0;
+}
+
+.nav-logo {
+    height: 45px;
+    width: 45px; /* Make width equal to height for perfect circle */
+    margin: 0;
+    border-radius: 50%; /* Creates circular shape */
+    object-fit: cover; /* Maintains aspect ratio and covers container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Crops the image to circle shape */
+}
+
+.nav-logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo text styling:
+   - Aligns text to the left
+   - Adds a shadow for a 3D effect */
+.navbar .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+    text-decoration: none;
+}
+
+/* Main logo text styling:
+   - Uses white color
+   - Sets a larger font size
+   - Adds italic style and letter spacing */
+.navbar .logo-main {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.2rem;
+    transition: all 0.3s ease;
+}
+
+/* Subtitle text styling:
+   - Uses gold color
+   - Sets a smaller font size
+   - Adds lowercase transformation and letter spacing */
+.navbar .logo-subtitle {
+    color: #ffd700;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: lowercase;
+    letter-spacing: 3px;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects for logo text:
+   - Changes color to gold
+   - Adds a larger shadow
+   - Slightly enlarges the text */
+.navbar .logo:hover .logo-main {
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+}
+
+.navbar .logo:hover .logo-subtitle {
+    color: white;
+}
+
+.navbar .logo:hover {
+    color: #ffd700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+}
+
+/* Adds an underline effect to the logo on hover */
+.navbar .logo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.navbar .logo:hover::after {
+    width: 100%;
+}
+
+/* Navigation links styling:
+   - Aligns links to the right
+   - Adds spacing between links */
+.navbar .nav-links {
+    margin-right: 20px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    margin-left: auto;
+    padding-right: 2rem;
+    list-style: none;
+}
+
+/* Navigation link text styling:
+   - Uses white color
+   - Removes underline
+   - Sets font size and weight
+   - Adds uppercase transformation and letter spacing */
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for navigation links:
+   - Changes color to gold */
+.navbar .nav-links a:hover {
+    color: #ffd700;
+}
+
+/* Hero section styling:
+   - Sets height to 80% of the viewport
+   - Adds a dark overlay on the background image
+   - Centers content vertically and horizontally */
+.hero {
+    height: 88vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('../images/background.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    margin-top: 0;
+    padding-top: 60px;
+    transition: opacity 0.3s ease; /* Add this line for smooth transition */
+    transition: background-image 0s ease-in-out;
+}
+
+/* Centers hero section content and adds padding */
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    padding: 2rem;
+}
+
+/* Primary button styling in hero section:
+   - Uses a dark pink background
+   - Sets text color to white
+   - Adds padding and border radius
+   - Removes border and adds cursor pointer */
+.hero .btn-primary {
+    background: #4d023f;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Hover effect for primary button:
+   - Changes background color to a darker shade */
+.hero .btn-primary:hover {
+    background: #4e0320;
+}
+
+
+/* Hero section title styling:
+   - Sets font size and weight
+   - Uses white color
+   - Adds letter spacing and margin
+   - Uses 'Playfair Display' font
+   - Adds text shadow and animation */
+   .hero h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-transform: none;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    animation: titleFade 1s ease-in;
+
+    /* Futuristic Enhancements - Experiment with these! */
+    text-shadow:
+        0 0 5px #fff,         /* White glow */
+        0 0 10px #fff,
+        0 0 15px #ffd700,    /* Gold neon glow */
+        0 0 20px #ffd700,
+        0 0 25px #ffd700,
+        0 0 30px #ffd700;
+    background: linear-gradient(45deg, #ffd700, #ffffff); /* Gold to White Gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700; /* Make it bolder */
+    letter-spacing: 0.1em; /* Slightly wider letter spacing */
+    text-transform: uppercase; /* Optional: Uppercase for stronger impact */
+    animation: neonShine 2s infinite alternate, titleFade 1s ease-in; /* Add neon shine animation */
+}
+
+/* Neon shine animation */
+@keyframes neonShine {
+    0%, 100% {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 15px #ffd700,
+            0 0 20px #ffd700,
+            0 0 25px #ffd700,
+            0 0 30px #ffd700;
+    }
+    50% {
+        text-shadow:
+            0 0 3px #fff,
+            0 0 6px #fff,
+            0 0 8px #ffd700,
+            0 0 10px #ffd700,
+            0 0 12px #ffd700,
+            0 0 15px #ffd700;
+    }
+}
+
+/* Hero section paragraph styling:
+   - Sets font size and color
+   - Adds margin and text shadow
+   - Adds animation */
+.hero p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    animation: titleFade 1s ease-in 0.3s backwards;
+}
+
+/* Section spacing:
+   - Adds padding and margin
+   - Sets position to relative */
+.section {
+    padding: 6rem 0;
+    margin: 2rem 0;
+    position: relative;
+}
+
+/* Adds extra space after hero section */
+.hero + .section {
+    margin-top: 4rem;
+}
+
+/* Section container spacing:
+   - Sets maximum width and centers content
+   - Adds padding */
+.section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0rem;
+}
+
+/* Section headings spacing:
+   - Sets font size and weight
+   - Adds margin and padding */
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    padding-bottom: 1.5rem;
+}
+
+/* Section content spacing:
+   - Adds margin and line height */
+.section p {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+/* Section separator:
+   - Adds a gradient line between sections */
+.section:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(93, 5, 39, 0.1), transparent);
+    margin-top: 4rem;
+}
+
+/* Section headings styling:
+   - Sets font size and weight
+   - Uses dark pink color
+   - Centers text and adds margin
+   - Adds letter spacing and transition */
+/* Futuristic Section Headings */
+.section h2 {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #5d0527;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    padding: 2rem 0;
+    /* Gradient text effect */
+    background: linear-gradient(135deg, #5d0527, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Add depth with multiple shadows */
+    text-shadow: 
+        2px 2px 0px rgba(93, 5, 39, 0.2),
+        4px 4px 0px rgba(255, 215, 0, 0.1);
+    /* Smooth transitions */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Geometric accent lines */
+.section h2::before,
+.section h2::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 60px;
+    background: linear-gradient(90deg, #5d0527, #ffd700);
+    transform-origin: center;
+    transition: all 0.5s ease;
+}
+
+.section h2::before {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+.section h2::after {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+/* Decorative elements */
+.section h2 span {
+    position: relative;
+    display: inline-block;
+}
+
+.section h2 span::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #5d0527;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: orbit 4s linear infinite;
+}
+
+/* Floating effect animation */
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(10px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(10px) rotate(-360deg);
+    }
+}
+
+/* Hover effects */
+.section h2:hover {
+    transform: translateY(-5px);
+    text-shadow: 
+        2px 2px 0px rgba(93, 5, 39, 0.3),
+        4px 4px 0px rgba(255, 215, 0, 0.2),
+        0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.section h2:hover::before {
+    transform: translateX(-50%) rotate(-90deg);
+    width: 80px;
+}
+
+.section h2:hover::after {
+    transform: translateX(-50%) rotate(90deg);
+    width: 80px;
+}
+
+/* Add futuristic glitch effect on hover */
+@keyframes glitch {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        transform: translate(0);
+    }
+    20% {
+        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+        transform: translate(-3px);
+    }
+    40% {
+        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+        transform: translate(3px);
+    }
+    60% {
+        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+        transform: translate(-3px);
+    }
+    80% {
+        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+        transform: translate(3px);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        transform: translate(0);
+    }
+}
+
+.section h2:hover span {
+    animation: glitch 0.5s ease-in-out;
+}
+
+/* Tech pattern background */
+.section h2::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        #5d0527,
+        #5d0527 5px,
+        transparent 5px,
+        transparent 10px
+    );
+    opacity: 0.3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        padding: 1.5rem 0;
+    }
+
+    .section h2::before,
+    .section h2::after {
+        width: 40px;
+    }
+}
+
+/* About section styling:
+   - Adds a gradient background */
+.about {
+    background: linear-gradient(to right, rgba(93, 5, 39, 0.05), transparent);
+}
+
+/* Centers content in about section and adds spacing */
+.about .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* About section paragraph styling:
+   - Sets maximum width and font size
+   - Adds line height and color
+   - Justifies text and adds padding
+   - Adds background, border radius, and shadow
+   - Adds transition and margin */
+.about p {
+    max-width: 800px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(93, 5, 39, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+/* Hover effect for about section paragraph:
+   - Moves up slightly and adds shadow */
+.about p:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(93, 5, 39, 0.15);
+}
+
+/* Styles the first letter of about section paragraph:
+   - Sets font size and family
+   - Uses dark pink color
+   - Floats to the left and adds margin */
+.about p::first-letter {
+    font-size: 2.5em;
+    font-family: 'Playfair Display', serif;
+    color: #5d0527;
+    float: left;
+    margin-right: 0.5rem;
+    line-height: 1;
+}
+
+/* Adds a large quotation mark before about section paragraph */
+.about p::before {
+    content: '"';
+    font-size: 4rem;
+    color: rgba(93, 5, 39, 0.1);
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+/* About section button styling:
+   - Centers button and adds padding
+   - Uses dark pink background and white text
+   - Adds border radius and shadow
+   - Adds transition and margin */
+.about .btn-learn-more {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: #5d0527;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(93, 5, 39, 0.2);
+}
+
+/* Adds an arrow icon to about section button */
+.about .btn-learn-more::after {
+    content: '→';
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for about section button:
+   - Changes background color
+   - Moves up slightly and adds shadow
+   - Moves arrow icon to the right */
+.about .btn-learn-more:hover {
+    background: #4d023f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(93, 5, 39, 0.3);
+}
+
+.about .btn-learn-more:hover::after {
+    transform: translateX(5px);
+}
+
+/* Disco section title styling:
+   - Uses white color */
+.disco h2 {
+    color: #ffffff;
+}
+
+/* Adds an underline effect to disco section title */
+.disco h2::after {
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+}
+
+/* Adds a star icon below disco section title */
+.disco h2::before {
+    color: #ffffff;
+}
+
+/* Menu section styling:
+   - Adds a gradient background and padding */
+.menu {
+    background: linear-gradient(rgba(93, 5, 39, 0.02), rgba(93, 5, 39, 0.05));
+    padding: 6rem 0;
+}
+
+/* Menu section styling:
+   - Sets position to relative
+   - Adds padding and background
+   - Hides overflow */
+.menu {
+    position: relative;
+    padding: 4rem 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+/* Menu background image styling:
+   - Positions image below menu title
+   - Sets size and opacity */
+.menu-bg {
+    position: absolute;
+    top: 180px; /* Move below menu title */
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background: url('../images/menu-bg.jpg') no-repeat center top;
+    background-size: cover;
+    z-index: 1;
+    opacity: 1;
+}
+
+/* Menu section title styling:
+   - Sets position and color
+   - Adds margin and centers text */
+.menu h2 {
+    position: relative;
+    z-index: 3;
+    color: #5d0527;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Menu introduction styling:
+   - Sets maximum width and centers content
+   - Adds padding, background, and border radius
+   - Adds shadow, blur, and border */
+   .menu-intro {
+    position: relative;
+    max-width: 600px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 23rem;
+    margin-left: auto;
+    padding-top: 2rem;
+    padding-right: 4rem;
+    padding-bottom: 2rem;
+    padding-left: 4rem;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(93, 5, 39, 0.1),
+                0 4px 8px rgba(93, 5, 39, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.menu-intro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(93, 5, 39, 0.15),
+                0 5px 15px rgba(93, 5, 39, 0.1);
+}
+
+/* Menu introduction title styling:
+   - Uses dark pink color
+   - Sets font size and margin
+   - Adds padding and underline */
+.menu-intro-title {
+    color: #5d0527;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.menu-intro-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #5d0527, transparent);
+}
+
+/* Menu features list styling:
+   - Removes list style and padding
+   - Adds margin and columns */
+.menu-features {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    text-align: left;
+    columns: 2;
+    column-gap: 3rem;
+}
+
+/* Menu features item styling:
+   - Adds margin and padding
+   - Positions bullet point */
+.menu-features li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.menu-features li::before {
+    content: '•';
+    color: #5d0527;
+    position: absolute;
+    left: 0;
+}
+
+/* Highlight text styling:
+   - Uses dark pink color and bold font */
+.highlight {
+    color: #5d0527;
+    font-weight: 600;
+}
+
+/* Menu navigation styling:
+   - Centers navigation and adds spacing */
+.menu-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+/* Category previews grid styling:
+   - Sets grid columns and gap
+   - Adds padding */
+.category-previews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* Category item styling:
+   - Sets position and height
+   - Adds border radius and overflow
+   - Adds cursor pointer and shadow
+   - Adds transition */
+.category-item {
+    position: relative;
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Category item image styling:
+   - Sets size and object fit
+   - Adds transition */
+.category-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Category overlay styling:
+   - Positions overlay at the bottom
+   - Adds gradient background and padding
+   - Sets text color and adds transition */
+.category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(93, 5, 39, 0.9));
+    padding: 1.5rem;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for category item:
+   - Moves up slightly */
+.category-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Hover effect for category item image:
+   - Enlarges image */
+.category-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Hover effect for category overlay:
+   - Moves overlay up */
+.category-item:hover .category-overlay {
+    transform: translateY(0);
+}
+
+/* Category overlay title styling:
+   - Uses 'Playfair Display' font
+   - Adds margin */
+.category-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
+}
+
+/* Category overlay paragraph styling:
+   - Sets font size and opacity */
+.category-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Menu button styling:
+   - Adds padding and border
+   - Uses dark pink color
+   - Adds border radius and cursor pointer
+   - Adds transition and bold font */
+.menu-btn {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #5d0527;
+    background: transparent;
+    color: #5d0527;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+/* Active and hover effect for menu button:
+   - Changes background color and text color */
+.menu-btn.active,
+.menu-btn:hover {
+    background: #5d0527;
+    color: white;
+}
+
+/* Menu card styling:
+   - Adds background and border radius
+   - Adds overflow and shadow
+   - Adds transition */
+.menu-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for menu card:
+   - Moves up slightly */
+.menu-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Menu card image styling:
+   - Sets size and object fit */
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Menu card content styling:
+   - Adds padding */
+.menu-card-content {
+    padding: 1.5rem;
+}
+
+/* Menu card title styling:
+   - Uses dark pink color
+   - Adds margin and 'Playfair Display' font */
+.menu-card-content h3 {
+    color: #5d0527;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Menu card paragraph styling:
+   - Uses gray color and smaller font size
+   - Adds margin */
+.menu-card-content p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Price text styling:
+   - Uses dark pink color and bold font
+   - Sets font size */
+.price {
+    color: #5d0527;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Back button styling:
+   - Adds margin */
+.back-button {
+    margin-bottom: 2rem;
+}
+
+/* Back button link styling:
+   - Uses dark pink color
+   - Removes underline
+   - Adds bold font and font size
+   - Adds transition */
+.back-button a {
+    color: #5d0527;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for back button link:
+   - Changes color to a darker shade */
+.back-button a:hover {
+    color: #7d0735;
+}
+
+/* Games section grid styling:
+   - Sets grid columns and gap
+   - Adds padding */
+/* Games section styling */
+/* Games section styling */
+.games {
+    background: linear-gradient(135deg, rgba(93, 5, 39, 0.05), rgba(255, 215, 0, 0.05));
+    position: relative;
+    overflow: hidden;
+}
+
+/* Games grid styling */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 3rem 0;
+    position: relative;
+}
+
+/* Game item base styling */
+.game-item {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 30px rgba(93, 5, 39, 0.1),
+        0 0 0 1px rgba(93, 5, 39, 0.05);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Game item image styling */
+.game-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+    filter: brightness(0.9);
+}
+
+/* Game item title container - Desktop */
+.game-item-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(
+        to top,
+        rgba(93, 5, 39, 0.9) 0%,
+        rgba(93, 5, 39, 0.7) 50%,
+        transparent 100%
+    );
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Game item title styling - Desktop */
+.game-item h3 {
+    color: #410246;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Desktop hover effects */
+.game-item:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 
+        0 20px 40px rgba(93, 5, 39, 0.2),
+        0 0 0 1px rgba(93, 5, 39, 0.1);
+}
+
+.game-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.game-item:hover .game-item-content {
+    transform: translateY(0);
+}
+
+.game-item:hover h3 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .game-item {
+        border-radius: 16px;
+        transform: none !important; /* Prevent desktop hover effects */
+    }
+
+    .game-item img {
+        height: 200px;
+        transform: none !important; /* Prevent desktop hover effects */
+    }
+
+    /* Override desktop hover styles for mobile - Show content by default */
+    .game-item-content {
+        transform: translateY(0);
+        padding: 1rem;
+        background: rgba(93, 5, 39, 0.9);
+    }
+
+    .game-item h3 {
+        opacity: 1;
+        transform: translateY(0);
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    /* Remove hover effects on mobile */
+    .game-item:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(93, 5, 39, 0.1);
+    }
+
+    .game-item:hover img {
+        transform: none;
+    }
+
+    /* Add touch feedback instead */
+    .game-item:active {
+        transform: scale(0.98) !important;
+    }
+}
+
+/* Additional mobile optimization for very small screens */
+@media (max-width: 360px) {
+    .game-item img {
+        height: 180px;
+    }
+
+    .game-item h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Disco section styling:
+   - Uses dark pink background and white text
+   - Adds padding */
+.disco {
+    background: #5d0527;
+    color: white;
+    padding: 4rem 0;
+}
+
+/* Disco content styling:
+   - Aligns items and adds spacing */
+.disco-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Disco content image styling:
+   - Sets width and adds border radius */
+.disco-content img {
+    width: 50%;
+    border-radius: 8px;
+}
+
+/* Disco text styling:
+   - Sets flex to 1 */
+.disco-text {
+    flex: 1;
+}
+
+
+
+/* Reservation form styling:
+   - Adds gradient background and padding */
+.reservation {
+    background: linear-gradient(rgba(93, 5, 39, 0.05), rgba(93, 5, 39, 0.02));
+    padding: 6rem 0;
+}
+
+/* Reservation form container styling:
+   - Sets maximum width and centers content
+   - Adds padding, background, and border radius
+   - Adds shadow */
+.reservation-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Form group container styling:
+   - Uses relative positioning for label placement
+   - Adds bottom margin for spacing between fields */
+   .form-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* Form row styling:
+   - Adds flex display and gap */
+   .form-row {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Form input elements styling:
+   - Sets full width and adds padding
+   - Uses subtle border and border radius
+   - Sets font size and smooth transitions
+   - Uses transparent background for overlay effect
+   - Adjusts height to accommodate floating labels */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 0.8rem 0.8rem;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    height: auto;
+}
+
+/* Form label styling:
+   - Positions absolutely within form group
+   - Sets initial position and color
+   - Adds smooth transition for floating effect
+   - Uses transparent background
+   - Prevents label from capturing mouse events */
+.form-group label {
+    position: absolute;
+    left: 0.8rem;
+    top: 0.8rem;
+    font-size: 1rem;
+    color: #666;
+    transition: all 0.3s ease;
+    background: transparent;
+    padding: 0 0.4rem;
+    pointer-events: none;
+}
+
+/* Floating label effect:
+   - Triggers when input is focused or has content
+   - Moves label above input field
+   - Reduces label size and changes color
+   - Adds white background to prevent text overlap */
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group select:focus ~ label,
+.form-group select:not([value=""]):valid ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    transform: translateY(-1.4rem) scale(0.85);
+    background: white;
+    padding: 0 0.4rem;
+    color: #5d0527;
+}
+
+/* Placeholder styling:
+   - Makes placeholder transparent to prevent overlap with label
+   - Maintains proper spacing in input field */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: transparent;
+}
+
+/* Date and time input specific styling:
+   - Sets text color for better visibility
+   - Adds extra top padding for floating label */
+.form-group input[type="date"],
+.form-group input[type="time"] {
+    color: #333;
+    padding-top: 1.2rem;
+}
+
+/* Floating label effect for date and time inputs:
+   - Adjusts label position when focused or filled
+   - Maintains consistent styling with other inputs
+   - Ensures proper background contrast */
+.form-group input[type="date"]:focus ~ label,
+.form-group input[type="date"]:not(:placeholder-shown) ~ label,
+.form-group input[type="time"]:focus ~ label,
+.form-group input[type="time"]:not(:placeholder-shown) ~ label {
+    transform: translateY(-1.4rem) scale(0.85);
+    background: white;
+    padding: 0 0.4rem;
+    color: #5d0527;
+}
+
+/* Select element specific styling:
+   - Adds extra top padding for floating label
+   - Sets cursor to pointer for better UX
+   - Uses dark text for better readability */
+.form-group select {
+    padding-top: 1.2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Focus state styling for form elements:
+   - Changes border color to dark pink
+   - Removes default outline
+   - Creates visual hierarchy for active elements */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #5d0527;
+    outline: none;
+}
+
+/* Responsive adjustments for mobile devices:
+   - Increases font size to prevent iOS zoom
+   - Maintains consistent label size
+   - Ensures proper touch target sizes */
+@media (max-width: 768px) {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+    }
+    
+    .form-group label {
+        font-size: 16px;
+    }
+}
+
+/* Submit button base styling:
+   - Uses gradient background and elegant transitions
+   - Adds dimensional depth with shadows
+   - Creates professional typography and spacing */
+   .btn-submit {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(135deg, #5d0527 0%, #4d023f 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(93, 5, 39, 0.2),
+                inset 0 2px 2px rgba(255, 255, 255, 0.1);
+    font-family: 'Playfair Display', serif;
+}
+
+/* Hover state styling:
+   - Adds subtle lift effect with enhanced shadow
+   - Changes background gradient
+   - Scales button slightly for engagement */
+.btn-submit:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 6px 20px rgba(93, 5, 39, 0.3),
+                inset 0 2px 2px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #6d0631 0%, #5d0249 100%);
+}
+
+/* Active state styling:
+   - Creates pressed effect
+   - Adjusts shadow for depth
+   - Maintains professional appearance */
+.btn-submit:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow: 0 2px 10px rgba(93, 5, 39, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Button shine effect:
+   - Adds subtle gradient overlay
+   - Creates dynamic interaction on hover */
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s ease;
+}
+
+.btn-submit:hover::before {
+    left: 100%;
+}
+
+/* Disabled state styling:
+   - Uses muted colors and removes interactions
+   - Maintains visual consistency */
+.btn-submit:disabled {
+    background: linear-gradient(135deg, #cccccc, #bbbbbb);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Loading state styling:
+   - Creates professional loading indicator
+   - Maintains button dimensions
+   - Adds smooth transitions */
+.btn-submit.loading {
+    color: transparent;
+    cursor: wait;
+}
+
+.btn-submit.loading::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: rotate 1s linear infinite;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading animation:
+   - Smooth rotation effect
+   - Maintains consistent speed */
+@keyframes rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Success state styling:
+   - Adds checkmark animation
+   - Uses professional color scheme */
+.btn-submit.success {
+    background: linear-gradient(135deg, #28a745, #218838);
+    pointer-events: none;
+}
+
+/* Error state styling:
+   - Uses warning colors
+   - Maintains consistent design language */
+.btn-submit.error {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    pointer-events: none;
+}
+
+/* Responsive adjustments:
+   - Optimizes for mobile devices
+   - Maintains touch-friendly dimensions */
+@media (max-width: 768px) {
+    .btn-submit {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Guest input container styling:
+   - Creates flex layout for input elements
+   - Adds gap between elements
+   - Maintains consistent spacing */
+   .guests-input-container {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    position: relative;
+    margin-top: 1rem;
+}
+
+/* Form group with guests input specific styling:
+   - Adjusts spacing to accommodate floating label
+   - Ensures proper positioning of all elements */
+.form-group.guests-group {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-top: 0.5rem;
+}
+
+/* Label styling for guests input:
+   - Positions above the input fields
+   - Ensures no overlap with input content
+   - Adds smooth transition effects */
+.form-group.guests-group label {
+    position: absolute;
+    top: -0.5rem;
+    left: 0.8rem;
+    font-size: 0.85rem;
+    color: #5d0527;
+    background: white;
+    padding: 0 0.4rem;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+/* Number input base styling:
+   - Sets consistent width
+   - Matches form styling
+   - Adds proper padding for content */
+.guests-input-container input[type="number"] {
+    width: 50%;
+    padding: 0.8rem;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    -moz-appearance: textfield;
+    height: 3rem;
+}
+
+/* Remove default number input arrows */
+.guests-input-container input[type="number"]::-webkit-outer-spin-button,
+.guests-input-container input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Select input styling:
+   - Matches number input styling
+   - Ensures consistent appearance */
+.guests-input-container select {
+    width: 50%;
+    padding: 0.8rem;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    height: 3rem;
+    cursor: pointer;
+}
+
+/* Focus states for both inputs:
+   - Highlights active input
+   - Maintains consistent styling */
+.guests-input-container input[type="number"]:focus,
+.guests-input-container select:focus {
+    border-color: #5d0527;
+    outline: none;
+}
+
+/* Focus effect for label:
+   - Ensures label remains visible
+   - Changes color for visual feedback */
+.guests-input-container input[type="number"]:focus ~ label,
+.guests-input-container select:focus ~ label {
+    color: #5d0527;
+}
+
+/* Ensures label stays in position when input has content */
+.guests-input-container input[type="number"]:not(:placeholder-shown) ~ label,
+.guests-input-container select:not([value=""]):valid ~ label {
+    transform: translateY(0);
+    font-size: 0.85rem;
+    color: #5d0527;
+}
+
+/* Responsive adjustments:
+   - Stacks inputs on smaller screens
+   - Maintains proper spacing and alignment */
+@media (max-width: 768px) {
+    .guests-input-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .guests-input-container input[type="number"],
+    .guests-input-container select {
+        width: 100%;
+    }
+}
+
+/* Form input specific styling:
+   - Sets padding and height
+   - Removes appearance and adds cursor pointer
+   - Sets color and background */
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select {
+    padding: 0.8rem;
+    height: 3rem;
+    appearance: none;
+    cursor: pointer;
+    color: #333;
+    background: white;
+}
+
+/* Form select styling:
+   - Adds padding and background image
+   - Sets background position and size */
+.form-group select {
+    padding-right: 2rem;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235d0527' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1rem;
+}
+
+/* Focus and valid effect for form input specific styling:
+   - Moves label up and changes color */
+.form-group input[type="date"] ~ label,
+.form-group input[type="time"] ~ label,
+.form-group select ~ label {
+    top: 0px;
+    left: 0;
+    font-size: 0.9rem;
+    color: #666;
+    transform: none;
+}
+
+.form-group input[type="date"]:focus ~ label,
+.form-group input[type="time"]:focus ~ label,
+.form-group select:focus ~ label {
+    color: #5d0527;
+}
+
+/* Success message styling:
+   - Uses green color and padding
+   - Adds margin and border radius
+   - Adds background */
+.success-message {
+    color: #4CAF50;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    background: rgba(76, 175, 80, 0.1);
+}
+
+/* Error message styling:
+   - Uses red color and padding
+   - Adds margin and border radius
+   - Adds background */
+.error-message {
+    color: #f44336;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    background: rgba(244, 67, 54, 0.1);
+}
+
+
+/* Contact Section Styles */
+.contact {
+    background: linear-gradient(rgba(93, 5, 39, 0.05), rgba(93, 5, 39, 0.02));
+    padding: 6rem 0;
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(93, 5, 39, 0.1);
+}
+
+.contact-info {
+    margin-bottom: 3rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(93, 5, 39, 0.02);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(93, 5, 39, 0.1);
+    background: rgba(93, 5, 39, 0.05);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #5d0527;
+    margin-right: 1rem;
+    width: 30px;
+    text-align: center;
+}
+
+.contact-item p {
+    margin: 0;
+    color: #333;
+}
+
+.contact-item a {
+    color: #5d0527;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #ffd700;
+}
+
+/* Social Media Section */
+.social-media {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(93, 5, 39, 0.1);
+}
+
+.social-media h3 {
+    color: #5d0527;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.social-media h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #5d0527, transparent);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #5d0527;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #5d0527, #ffd700);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.social-icon i {
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(93, 5, 39, 0.3);
+}
+
+.social-icon:hover::before {
+    opacity: 1;
+}
+
+.social-icon:hover i {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 2rem;
+    }
+    
+    .social-icons {
+        gap: 1rem;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-icon i {
+        font-size: 1.2rem;
+    }
+}
+
+/* Footer styling:
+   - Uses dark pink background and white text
+   - Adds padding and centers text */
+/* Footer Base Styles */
+.footer {
+    background: linear-gradient(to bottom, #5d0527, #4d023f);
+    color: #ffffff;
+    padding: 4rem 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Footer Content Layout */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* Company Logo Section */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffd700;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.footer-brand-sub {
+    font-size: 0.9rem;
+    color: #ffd700;
+    letter-spacing: 2px;
+}
+
+.footer-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+/* Column Headers */
+.footer-column h3 {
+    font-family: 'Playfair Display', serif;
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffd700, transparent);
+}
+
+/* Quick Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffd700;
+    transform: translateX(5px);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* Opening Hours */
+.footer-hours {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-hours li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-hours .day {
+    color: #ffd700;
+    font-weight: 500;
+}
+
+.footer-hours .hours {
+    opacity: 0.9;
+}
+
+/* Newsletter Section */
+.newsletter-desc {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.newsletter-form .form-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #ffd700;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-subscribe {
+    padding: 0.8rem 1.5rem;
+    background: #ffd700;
+    color: #5d0527;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-subscribe:hover {
+    background: #ffed4a;
+    transform: translateY(-2px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-social {
+    margin-bottom: 1.5rem;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin: 0 0.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: #ffd700;
+    color: #5d0527;
+    transform: translateY(-3px);
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: #ffd700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+
+    .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .footer-hours li {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .newsletter-form .form-group {
+        flex-direction: column;
+    }
+
+    .footer-legal {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Responsive styles for smaller screens:
+   - Adjusts padding for navbar container
+   - Hides navigation links */
+@media (max-width: 768px) {
+    .navbar .container {
+        padding: 0 0rem;
+    }
+
+    .nav-links {
+        display: none; /* Should implement a mobile menu */
+    }
+
+    .nav-brand {
+        margin-left: 0;
+    }
+
+    .navbar .logo-main {
+        font-size: 1.2rem;
+    }
+
+    .navbar .logo-subtitle {
+        font-size: 0.7rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* Responsive Design Updates */
+@media (max-width: 768px) {
+
+    .container {
+        padding: 0rem;
+    }
+    /* Navigation */
+
+    /* Hero Section (Mobile Styles - Modifications are here) */
+    .hero {
+        height: 100vh; /* <--- Set to 100vh for full screen on mobile */
+        padding-top: 0;  /* <--- Remove padding-top on mobile to allow full screen */
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    /* Section Spacing */
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Menu Section */
+
+    .menu {
+        position: relative;
+        padding: 0rem 4;
+        background: transparent;
+        overflow: hidden;
+        margin-bottom: 10;
+    }
+
+    .menu-bg {
+        position: absolute;
+        top: 100px; /* Move below menu title */
+        left: 0;
+        width: 100%;
+        height: 600px;
+    }
+
+    .menu-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0 1rem;
+    }
+
+    .menu-btn {
+        padding: 0.6rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .category-previews {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .menu-intro {
+        margin-bottom: 24rem;
+        padding: 0rem;
+    }
+
+    /* Disco Section */
+    .disco-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .disco-content img {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Reservation Form */
+    .reservation-form {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+
+    /* Contact Section */
+    .contact-content {
+        padding: 1.5rem;
+    }
+
+    .social-icons {
+        gap: 1rem;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Fix for iOS input zoom */
+    @media screen and (-webkit-min-device-pixel-ratio: 0) { 
+        select,
+        textarea,
+        input {
+            font-size: 16px;
+        }
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .menu-intro-title {
+        font-size: 1.4rem;
+    }
+
+    .category-item {
+        height: 200px;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+
+
+/* Language switcher container */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 2rem;
+}
+
+/* Language buttons */
+.lang-btn {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn.active {
+    background: white;
+    color: #5d0527;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .language-switcher {
+        margin: 1rem 0;
+    }
+    
+    .nav-links.mobile-active .language-switcher {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+
+
+
