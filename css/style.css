@@ -2231,7 +2231,9 @@ h1, h2 {
     .btn-subscribe {
         width: 50%;
         margin-left: 4rem;
+        margin-right: 4rem;
         border-radius: 10px;
+        position: relative;
     }
 }
 
