@@ -25,6 +25,603 @@
     <script src="js/translation.js"></script>
 </head>
 <body>
+
+    <!-- Beauty Contest Modal - Add this right after <body> tag in index.html -->
+
+<!-- MODAL CONFIGURATION:
+     - CONTEST_ACTIVE: Set to false to completely disable the modal
+     - Modal shows EVERY TIME the homepage is loaded
+     - Delay: 1 second after page load (change 1000 to adjust in milliseconds)
+     - To disable after contest: set CONTEST_ACTIVE = false
+-->
+
+<!-- TOGGLE CONTEST: Change to false to disable the modal after contest ends -->
+<script>
+    const CONTEST_ACTIVE = true; // Set to false to disable modal
+    const CONTEST_DEADLINE = '2025-08-08T23:59:59'; // Contest deadline
+</script>
+
+<!-- Beauty Contest Modal -->
+<div id="beautyContestModal" class="beauty-modal-overlay" style="display: none;">
+    <div class="beauty-modal-container">
+        <!-- Close Button -->
+        <button class="beauty-modal-close" aria-label="Fermer">
+            <span>&times;</span>
+        </button>
+
+        <!-- Modal Content -->
+        <div class="beauty-modal-content">
+            <!-- Header Section -->
+            <div class="beauty-modal-header">
+                <div class="crown-decoration">👑</div>
+                <h2 class="beauty-modal-title">Miss Prestige LeSims 2025</h2>
+                <p class="beauty-modal-subtitle">Votez pour votre candidate préférée</p>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <p class="countdown-label">Fin des votes dans :</p>
+                <div class="countdown-timer" id="contestCountdown">
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-text">Jours</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-text">Heures</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-text">Minutes</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-text">Secondes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contestants Preview -->
+            <div class="contestants-preview">
+                <div class="contestant-card">
+                    <img src="images/contestant1.jpg" alt="Candidate 1">
+                    <div class="contestant-overlay">
+                        <span class="contestant-number">#1</span>
+                    </div>
+                </div>
+                <div class="contestant-card">
+                    <img src="images/contestant2.jpg" alt="Candidate 2">
+                    <div class="contestant-overlay">
+                        <span class="contestant-number">#2</span>
+                    </div>
+                </div>
+                <div class="contestant-card">
+                    <img src="images/contestant3.jpg" alt="Candidate 3">
+                    <div class="contestant-overlay">
+                        <span class="contestant-number">#3</span>
+                    </div>
+                </div>
+                <div class="contestant-card more-contestants">
+                    <div class="more-overlay">
+                        <span class="more-text">+12</span>
+                        <span class="more-label">Candidates</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="beauty-modal-description">
+                <p>Participez à l'élection de Miss Prestige LeSims 2025 ! Découvrez nos magnifiques candidates et votez pour celle qui représentera l'élégance et le charme de notre établissement.</p>
+                <p class="highlight-text">✨ Chaque vote compte ! ✨</p>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="https://lesims-vote.vercel.app/" target="_blank" class="beauty-vote-btn">
+                <span class="btn-text">Voter Maintenant</span>
+                <span class="btn-arrow">→</span>
+            </a>
+
+            <!-- Footer Info -->
+            <p class="modal-footer-text">Complexe LeSims - Où l'élégance rencontre l'excellence</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Styles -->
+<style>
+/* Beauty Contest Modal Styles */
+/* 
+   TRANSPARENCY CONTROLS:
+   - Background opacity: 0.4 (40% black, 60% transparent)
+   - Blur amount: 5px (lower = more visible, higher = more blurred)
+   - To make background MORE visible: decrease opacity (e.g., 0.3 or 0.2)
+   - To make background LESS visible: increase opacity (e.g., 0.5 or 0.6)
+*/
+.beauty-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    animation: modalFadeIn 0.5s ease forwards, overlayGlow 4s ease-in-out infinite 0.5s;
+}
+
+@keyframes modalFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Subtle glow animation for overlay */
+@keyframes overlayGlow {
+    0%, 100% {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        background: rgba(0, 0, 0, 0.45);
+    }
+}
+
+.beauty-modal-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+    border-radius: 24px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 
+        0 25px 50px rgba(93, 5, 39, 0.4),
+        0 0 100px rgba(255, 215, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    transform: scale(0.8);
+    animation: modalSlideIn 0.5s ease forwards 0.2s, modalBorderGlow 3s ease-in-out infinite 0.7s;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes modalSlideIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Gold glow animation for modal border */
+@keyframes modalBorderGlow {
+    0%, 100% {
+        box-shadow: 
+            0 25px 50px rgba(93, 5, 39, 0.4),
+            0 0 100px rgba(255, 215, 0, 0.2),
+            0 0 0 1px rgba(255, 255, 255, 0.5),
+            0 0 30px rgba(255, 215, 0, 0.3),
+            inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    }
+    50% {
+        box-shadow: 
+            0 25px 50px rgba(93, 5, 39, 0.4),
+            0 0 100px rgba(255, 215, 0, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.7),
+            0 0 50px rgba(255, 215, 0, 0.5),
+            inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Scrollbar Styling */
+.beauty-modal-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.beauty-modal-container::-webkit-scrollbar-track {
+    background: rgba(93, 5, 39, 0.1);
+    border-radius: 4px;
+}
+
+.beauty-modal-container::-webkit-scrollbar-thumb {
+    background: #5d0527;
+    border-radius: 4px;
+}
+
+/* Close Button */
+.beauty-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(93, 5, 39, 0.1);
+    color: #5d0527;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.beauty-modal-close:hover {
+    background: #5d0527;
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Modal Content */
+.beauty-modal-content {
+    padding: 40px;
+}
+
+/* Header Section */
+.beauty-modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.crown-decoration {
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: crownFloat 3s ease-in-out infinite;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.beauty-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #5d0527;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #5d0527, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.beauty-modal-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Countdown Timer */
+.countdown-container {
+    background: linear-gradient(135deg, rgba(93, 5, 39, 0.05), rgba(255, 215, 0, 0.05));
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.countdown-label {
+    text-align: center;
+    color: #5d0527;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.countdown-unit {
+    text-align: center;
+}
+
+.countdown-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #5d0527;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(93, 5, 39, 0.1);
+    min-width: 50px;
+}
+
+.countdown-text {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Contestants Preview */
+.contestants-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contestant-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    box-shadow: 0 4px 12px rgba(93, 5, 39, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.contestant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(93, 5, 39, 0.2);
+}
+
+.contestant-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contestant-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(93, 5, 39, 0.9), transparent);
+    padding: 15px 10px 10px;
+    color: white;
+}
+
+.contestant-number {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.more-contestants {
+    background: linear-gradient(135deg, #5d0527, #ffd700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.more-overlay {
+    text-align: center;
+}
+
+.more-text {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.more-label {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Description */
+.beauty-modal-description {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.beauty-modal-description p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.highlight-text {
+    color: #5d0527;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Vote Button */
+.beauty-vote-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, #5d0527, #4d023f);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(93, 5, 39, 0.2);
+}
+
+.beauty-vote-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.beauty-vote-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(93, 5, 39, 0.3);
+}
+
+.beauty-vote-btn:hover::before {
+    left: 100%;
+}
+
+.beauty-vote-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+.btn-arrow {
+    transition: transform 0.3s ease;
+}
+
+/* Footer Text */
+.modal-footer-text {
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .beauty-modal-content {
+        padding: 30px 20px;
+    }
+
+    .beauty-modal-title {
+        font-size: 2rem;
+    }
+
+    .contestants-preview {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .countdown-timer {
+        gap: 10px;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+        padding: 8px 10px;
+        min-width: 40px;
+    }
+
+    .countdown-text {
+        font-size: 0.7rem;
+    }
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+</style>
+
+<!-- Modal JavaScript -->
+<script>
+(function() {
+    // Check if contest is active
+    if (!CONTEST_ACTIVE) return;
+
+    // Modal elements
+    const modal = document.getElementById('beautyContestModal');
+    const closeBtn = document.querySelector('.beauty-modal-close');
+    
+    // Countdown timer function
+    function updateCountdown() {
+        const deadline = new Date(CONTEST_DEADLINE);
+        const now = new Date();
+        const timeLeft = deadline - now;
+        
+        if (timeLeft <= 0) {
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            return;
+        }
+        
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+    
+    // Show modal function
+    function showModal() {
+        if (modal && (window.location.pathname === '/' || window.location.pathname === '/index.html')) {
+            // Always show modal on homepage every time page loads
+            setTimeout(() => {
+                modal.style.display = 'flex';
+                document.body.classList.add('modal-open');
+                
+                // Start countdown
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            }, 1000); // Show after 1 second delay
+        }
+    }
+    
+    // Close modal function
+    function closeModal() {
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
+    }
+    
+    // Event listeners
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // Close on overlay click
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+    
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+            closeModal();
+        }
+    });
+    
+    // Initialize modal when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', showModal);
+    } else {
+        showModal();
+    }
+    
+    // Global function to manually show modal (for debugging)
+    window.showBeautyModal = function() {
+        if (modal) {
+            modal.style.display = 'flex';
+            document.body.classList.add('modal-open');
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+    };
+})();
+</script>
+
+
 <!-- Fixed Navigation Bar -->
 <nav class="navbar">
     <div class="container">
